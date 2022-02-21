@@ -16,3 +16,7 @@
 *.woff
 
 js/firebase.js
+database.rules.json
+firebase.json
+.firebase
+.firebaserc
