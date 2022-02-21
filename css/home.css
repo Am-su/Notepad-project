@@ -1,0 +1,78 @@
+*{
+  padding:0;
+  margin:0 auto;
+}
+ul{
+  list-style: none;
+  display:flex;
+  flex-direction: column;
+}
+#container{
+  position:relative;
+  top:100px;
+  width:500px;
+  height: 600px;
+  margin:0 auto;
+  display:flex;
+  flex-direction: column;
+  background-color:#FFECCC;
+  border-radius: 10px;
+}
+#title img{
+  width:40px;
+  height:40px;
+  margin-left: 5px;
+}
+#header{
+  width:500px;
+  height:60px;
+  top:0;
+  display:flex;
+  align-items: center;
+  background-color: #CBA577;
+  border-radius: 10px 10px 0 0;
+}
+#title{
+  position:absolute;
+  display:flex;
+  align-items: center;
+  left:10px;
+  top:10px;
+}
+#title p{
+  font-size: 1.8em;
+}
+
+#header #btnAdd{
+  font-weight: bold;
+  cursor: pointer;
+  position:absolute;
+  right:15px;
+  width:80px;
+  height:40px;
+  background-color:#C25450;
+  border:0;
+  outline: 0;
+  border-radius: 10px;
+}
+
+#memoList {
+  margin-top:20px;
+  display:flex;
+  flex-direction: column;
+}
+
+#memoList li{
+  margin:5px;
+  width:420px;
+  height:80px;
+  border-radius: 10px;;
+  background-color: white;
+  gap: 10px;
+}
+
+li.memo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
