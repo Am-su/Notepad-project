@@ -15,7 +15,7 @@
 *.ttf
 *.woff
 
-js/firebase.js
+firebase.js
 database.rules.json
 firebase.json
 .firebase
