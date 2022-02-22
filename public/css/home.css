@@ -55,6 +55,9 @@ ul{
   outline: 0;
   border-radius: 10px;
 }
+#header #btnAdd:hover{
+  background-color: #007562;
+}
 
 #memoList {
   margin-top:20px;
