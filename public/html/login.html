@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>메모장 로그인</title>
   <link rel="stylesheet" href="../css/login.css">
+  <script src="../libs/jquery-3.6.0.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <script src="../js/login.js"></script>
 </head>
 <body>
   <div id="container">
@@ -14,14 +17,13 @@
       <img src="../images/memo.png" alt="">
     </div>
     <p>로그인 후 이용하실 수 있습니다.</p>
-    <input type="" id="text" placeholder=" 아이디를 입력해주세요">
+    <input type="email" id="email" placeholder=" 아이디를 입력해주세요">
     <input type="password" id="password" placeholder=" 비밀번호를 입력해주세요">
-    <button id="login" onclick="location.href='../html/home.html'">로그인</button>
+    <button id="login">로그인</button>
     <ul id="sub">
-      <li><a href="#">비밀번호 찾기</a></li>
+      <li><a href="#" class="yet">비밀번호 찾기</a></li>
       <li><a href="../html/register.html">회원가입</a></li>
     </ul>
   </div>
-  <script src="../js/firebase.js"></script>
 </body>
 </html>
