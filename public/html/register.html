@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>회원가입</title>
   <link rel="stylesheet" href="../css/register.css">
+  <script src="../libs/jquery-3.6.0.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <script src="../js/register.js"></script>
 </head>
 <body>
   <div id="container">
@@ -14,11 +17,11 @@
       <img src="../images/memo.png" alt="">
     </div>
     <p>회원가입 후 이용하실 수 있습니다.</p>
-    <input type="" id="text" placeholder=" 아이디를 입력해주세요">
-    <input type="password" id="password1" placeholder=" 비밀번호를 입력해주세요">
-    <input type="password" id="password2" placeholder=" 비밀번호를 한번 더 입력해주세요">
-    <button id="register" href="#"">회원가입</button>
+    <input type="email" id="email" placeholder=" 이메일을 입력해주세요">
+    <input type="password" id="pwd1" placeholder=" 비밀번호를 입력해주세요">
+    <input type="password" id="pwd2" placeholder=" 비밀번호를 한번 더 입력해주세요">
+    <button id="register">회원가입</button>
   </div>
-  <script src="../js/firebase.js"></script>
+  
 </body>
 </html>
