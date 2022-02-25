@@ -11,6 +11,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var Auth = firebase.auth();
+var Fdatabase = firebase.database;
 var userInfo;
 
 $(document).ready(function(){
