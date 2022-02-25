@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var Auth = firebase.auth();
-var Fdatabase = firebase.database;
+//var Fdatabase = firebase.database;
 var userInfo;
 
 $(document).ready(function(){
@@ -30,7 +30,7 @@ $(document).ready(function(){
         alert("회원가입 완료");
         window.location.href = "../html/login.html"
 
-        // logUser(); 
+        //logUser(); 
     
     }, function(error) {
         //에러가 발생했을 때 
@@ -43,7 +43,7 @@ $(document).ready(function(){
 });
 
 function logUser(){
-  var ref = database.ref("users/"+userInfo.uid); //저장될 곳을 users라는 부모 키를 레퍼런스로 지정.
+  var ref = Fdatabase.ref("users/"+userInfo.uid); //저장될 곳을 users라는 부모 키를 레퍼런스로 지정.
   
   //저장 형식
   var obj = {
