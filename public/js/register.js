@@ -26,7 +26,7 @@ $(document).ready(function(){
       Auth.createUserWithEmailAndPassword(email, pwd2).then(function(user) {
     
         userInfo = user;
-        alert("가입완료");
+        alert("회원가입 완료");
         window.location.href = "../html/login.html"
 
         // logUser(); 
