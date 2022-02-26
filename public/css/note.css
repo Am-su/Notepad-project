@@ -1,0 +1,85 @@
+*{
+  padding:0;
+  margin:0 auto;
+}
+ul{
+  list-style: none;
+  display:flex;
+  flex-direction: column;
+}
+#container{
+  position:relative;
+  top:100px;
+  width:500px;
+  height: 600px;
+  margin:0 auto;
+  display:flex;
+  flex-direction: column;
+  background-color:#FFECCC;
+  border-radius: 10px;
+}
+#headerTitle img{
+  width:40px;
+  height:40px;
+  margin-left: 5px;
+}
+#header{
+  width:500px;
+  height:60px;
+  top:0;
+  display:flex;
+  align-items: center;
+  background-color: #CBA577;
+  border-radius: 10px 10px 0 0;
+}
+#header #headerTitle{
+  position:absolute;
+  display:flex;
+  align-items: center;
+  left:10px;
+  top:10px;
+}
+#headerTitle p{
+  font-size: 1.8em;
+}
+
+#header #save{
+  font-weight: bold;
+  cursor: pointer;
+  position:absolute;
+  right:15px;
+  width:80px;
+  height:40px;
+  background-color:#C25450;
+  border:0;
+  outline: 0;
+  border-radius: 10px;
+}
+#header #save:hover{
+  background-color: #007562;
+}
+
+#aside{
+  display:flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+#aside input[type="text"], #aside #content{
+  border:1px solid white;
+  border-radius: 10px;
+  width:420px;
+}
+
+#aside input[type="text"]:focus, #aside #content:focus{
+  outline: none;
+}
+#aside #title{
+  height:30px;
+  margin-bottom: 20px;
+}
+
+
+#aside #content{
+  height:400px;
+  resize: none;
+}
