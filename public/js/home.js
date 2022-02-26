@@ -1,5 +1,5 @@
 $(document).ready(function(){
   $("#btnAdd").on("click",function(){
-    alert("미구현");
+    window.location.href = "../html/memo.html"
   })
 })
