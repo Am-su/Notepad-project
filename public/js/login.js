@@ -1,12 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyBdhDxGZdHCn8PZQyDKnZeTrIrI3tXFtLA",
-  authDomain: "memo-app-8e2cf.firebaseapp.com",
-  databaseURL: "https://memo-app-8e2cf-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "memo-app-8e2cf",
-  storageBucket: "memo-app-8e2cf.appspot.com",
-  messagingSenderId: "242022781053",
-  appId: "1:242022781053:web:40694e7c1a39c373ba2114",
-  measurementId: "G-L52XWCCL0K"
+  apiKey: "AIzaSyAY_ZwqstnZjhd8CJ-UKxySp9Yo_e7S6_Q",
+  authDomain: "memo-app-ba46d.firebaseapp.com",
+  databaseURL: "https://memo-app-ba46d-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "memo-app-ba46d",
+  storageBucket: "memo-app-ba46d.appspot.com",
+  messagingSenderId: "531565961205",
+  appId: "1:531565961205:web:087a2489a973dc7ce3cabc"
 };
 
 firebase.initializeApp(firebaseConfig);
