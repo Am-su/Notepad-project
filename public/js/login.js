@@ -1,14 +1,5 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyAY_ZwqstnZjhd8CJ-UKxySp9Yo_e7S6_Q",
-  authDomain: "memo-app-ba46d.firebaseapp.com",
-  databaseURL: "https://memo-app-ba46d-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "memo-app-ba46d",
-  storageBucket: "memo-app-ba46d.appspot.com",
-  messagingSenderId: "531565961205",
-  appId: "1:531565961205:web:087a2489a973dc7ce3cabc"
-};
+import { app } from "../js/firebase.js";
 
-firebase.initializeApp(firebaseConfig);
 var Auth=firebase.auth();
 // var Fdatabase = firebase.database;
 var userInfo;

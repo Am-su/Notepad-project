@@ -1,16 +1,9 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyAY_ZwqstnZjhd8CJ-UKxySp9Yo_e7S6_Q",
-  authDomain: "memo-app-ba46d.firebaseapp.com",
-  databaseURL: "https://memo-app-ba46d-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "memo-app-ba46d",
-  storageBucket: "memo-app-ba46d.appspot.com",
-  messagingSenderId: "531565961205",
-  appId: "1:531565961205:web:087a2489a973dc7ce3cabc"
-};
+import { app } from "../js/firebase.js";
+import { getDatabase, ref, set, push, child, get, update, remove } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
-firebase.initializeApp(firebaseConfig);
+
 var Auth = firebase.auth();
-//var Fdatabase = firebase.database;
+var Fdatabase = firebase.getDatabase;
 var userInfo;
 
 $(document).ready(function(){
@@ -26,10 +19,9 @@ $(document).ready(function(){
       Auth.createUserWithEmailAndPassword(email, pwd2).then(function(user) {
     
         userInfo = user;
+        //logUser();
         alert("회원가입 완료");
         window.location.href = "../html/login.html"
-
-        //logUser(); 
     
     }, function(error) {
         //에러가 발생했을 때 
@@ -46,7 +38,7 @@ function logUser(){
   
   //저장 형식
   var obj = {
-      name: name,
+      email: email
   };
 
   ref.set(obj); // 고유한 자식 키가 하나 생셩이 되면서 json 삽입
