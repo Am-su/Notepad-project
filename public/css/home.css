@@ -78,6 +78,10 @@ li.memo{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  cursor: pointer;
+}
+li.memo:hover{
+  border:1px solid black;
 }
 
 .memo .title, .memo .content{
