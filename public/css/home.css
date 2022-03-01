@@ -79,3 +79,11 @@ li.memo{
   flex-direction: column;
   justify-content: space-evenly;
 }
+
+.memo .title, .memo .content{
+  width:280px;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
