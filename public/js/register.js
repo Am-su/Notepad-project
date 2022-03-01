@@ -1,7 +1,8 @@
 import { app, firebaseConfig } from "../js/firebase.js";
 import { getFirestore, collection, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { errorMessage } from "../js/login.js";
 
-firebase.initializeApp(firebaseConfig);
+
 
 const Auth = firebase.auth();
 var userInfo;
@@ -23,9 +24,8 @@ $(document).ready(function(){
       }, 3000);
     }, function(error) {
         //에러가 발생했을 때 
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        alert(errorMessage);
+        console.log(error.code);
+        errorMessage(error.code);
       });
     }
   });
