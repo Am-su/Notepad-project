@@ -1,6 +1,8 @@
-import { app } from "../js/firebase.js";
+import { app, firebaseConfig } from "../js/firebase.js";
 
-var Auth=firebase.auth();
+firebase.initializeApp(firebaseConfig);
+
+var Auth = firebase.auth();
 // var Fdatabase = firebase.database;
 var userInfo;
 
