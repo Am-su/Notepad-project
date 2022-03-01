@@ -1,5 +1,5 @@
 import { app, firebaseConfig } from "../js/firebase.js";
-import { getDatabase, ref, set, push, child, get, update, remove } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getFirestore, collection, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -17,10 +17,10 @@ $(document).ready(function(){
     }
     else{
       Auth.createUserWithEmailAndPassword(email, pwd2).then(function(user) {
-
-        
-        logUser(user);
-    
+      logUser(user,email);
+      setTimeout(() => {
+        window.location.href = "../html/login.html"        
+      }, 3000);
     }, function(error) {
         //에러가 발생했을 때 
         var errorCode = error.code;
@@ -31,13 +31,11 @@ $(document).ready(function(){
   });
 });
 
-function logUser(info){
+function logUser(user,email){
 
-  const db = getDatabase();
-  set(ref(db,'users/'+info.uid),{
+  const db = getFirestore();
+  setDoc(doc(db,"user",user.uid),{
     email:email
   })
-  console.log(info.uid);
   alert("회원가입 완료");
-  window.location.href = "../html/login.html"
 }
