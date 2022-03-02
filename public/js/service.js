@@ -1,24 +1,19 @@
 import { app, firebaseConfig } from "../js/firebase.js";
+import { getFirestore, collection, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-
-var Auth = firebase.auth();
-// var Fdatabase = firebase.database;
-var userInfo;
+const Auth = firebase.auth();
+const db = getFirestore();
+var uid;
 
 $(document).ready(function(){
-  $(".yet").on('click',function(){
-    alert("미구현");
-  })
-
   $("#login").on("click",function(){
-    var email = $("#email").val();
-    var pwd = $("#password").val();
-
-    Auth.signInWithEmailAndPassword(email,pwd).then(function(firebaseUser){
-      loginSuccess(firebaseUser);
-    }).catch(error => {
-      errorMessage(error.code);
-    })
+    login();
+  })
+  $("#btnAdd").on("click",function(){
+    window.location.href = "../html/memo.html"
+  })
+  $("#save").on("click",function(){
+    alert("미구현");
   })
 })
 
@@ -46,4 +41,14 @@ function errorMessage(errorCode){
   }
 }
 
-export { errorMessage }
+function login(){
+  var email = $("#email").val();
+  var pwd = $("#password").val();
+
+  Auth.signInWithEmailAndPassword(email,pwd).then(function(firebaseUser){
+    uid = firebaseUser.uid;
+    loginSuccess(firebaseUser);
+  }).catch(error => {
+    errorMessage(error.code);
+  })
+}

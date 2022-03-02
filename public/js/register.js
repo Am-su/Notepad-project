@@ -35,7 +35,8 @@ function logUser(user,email){
 
   const db = getFirestore();
   setDoc(doc(db,"user",user.uid),{
-    email:email
+    email:email,
+    memoNum:"0"
   })
   alert("회원가입 완료");
 }
