@@ -84,7 +84,7 @@ li.memo:hover{
   border:1px solid black;
 }
 
-.memo .title, .memo .content{
+.memo .Memotitle, .memo .content{
   width:280px;
   text-overflow:ellipsis;
   white-space: nowrap;
