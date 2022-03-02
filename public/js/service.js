@@ -1,9 +1,8 @@
 import { app, firebaseConfig } from "../js/firebase.js";
-import { getFirestore, collection, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { getFirestore, collection, setDoc, doc, getDoc, addDoc, getDocs, updateDoc, increment,} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const Auth = firebase.auth();
 const db = getFirestore();
-var uid;
 
 $(document).ready(function(){
   $("#login").on("click",function(){
@@ -13,7 +12,7 @@ $(document).ready(function(){
     window.location.href = "../html/memo.html"
   })
   $("#save").on("click",function(){
-    alert("미구현");
+    save();
   })
 })
 
@@ -46,9 +45,17 @@ function login(){
   var pwd = $("#password").val();
 
   Auth.signInWithEmailAndPassword(email,pwd).then(function(firebaseUser){
-    uid = firebaseUser.uid;
+    sessionStorage.setItem('uid',firebaseUser.uid);
     loginSuccess(firebaseUser);
   }).catch(error => {
     errorMessage(error.code);
+  })
+}
+
+async function save(){
+  const uid = sessionStorage.getItem("uid");
+  const ref = doc(db,"user/"+uid);
+  await updateDoc(ref,{
+    memoNum:increment(1)
   })
 }
