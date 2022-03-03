@@ -63,6 +63,17 @@ async function save(){
 
   const docSnap = await getDoc(ref);
   memoNum = parseInt(docSnap.data().memoNum);
-  console.log(memoNum);
+  saveMemo(memoNum);
   
+}
+
+function saveMemo(num){
+  const title = $("#title").val();
+  const content = $("#content").val();
+
+  setDoc(doc(db,"user/uid/memo/"+num),{
+    title:title,
+    content:content
+  })
+  alert("저장이 완료되었습니다.");
 }
