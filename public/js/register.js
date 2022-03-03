@@ -1,6 +1,6 @@
 import { app, firebaseConfig } from "../js/firebase.js";
 import { getFirestore, collection, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-import { errorMessage } from "../js/login.js";
+import { errorMessage } from "../js/service.js";
 
 
 
