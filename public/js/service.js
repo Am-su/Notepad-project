@@ -1,10 +1,13 @@
 import { app, firebaseConfig } from "../js/firebase.js";
-import { getFirestore, collection, setDoc, doc, getDoc, addDoc, getDocs, updateDoc, increment, runTransaction } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { getFirestore, collection, setDoc, doc, getDoc, addDoc, getDocs, updateDoc,
+         increment, runTransaction, query, where}
+          from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const Auth = firebase.auth();
 const db = getFirestore();
 
 $(document).ready(function(){
+  updateHome();
   $("#login").on("click",function(){
     login();
   })
@@ -17,7 +20,13 @@ $(document).ready(function(){
       window.location.href = "../html/home.html"        
     }, 3000);
   })
-  updateHome();
+   $("#memoList").on("click","#delete",function(e){
+    
+    let title = $(this).prev().text();
+    remove(title);
+
+
+   })
 })
 
 function loginSuccess(firebaseUser){
@@ -108,6 +117,7 @@ async function updateHome(){
       
       const icon = document.createElement("i");
       icon.setAttribute("class","fa fa-trash");
+      icon.setAttribute("id","delete");
       const head = document.createElement("p");
       head.append(title);
       
@@ -126,4 +136,19 @@ async function updateHome(){
   }
 }
 
+function remove(title){
+  search(title);
+}
+
+async function search(title){
+  const uid = sessionStorage.getItem("uid");
+  const memoRef = collection(db,"user/"+uid+"/memo");
+  const q = query(memoRef, where("title","==",title));
+
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", parseInt(doc.data().title));
+  });
+}
 export{ errorMessage };
