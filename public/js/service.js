@@ -14,6 +14,7 @@ $(document).ready(function(){
   $("#save").on("click",function(){
     save();
   })
+  updateHome();
 })
 
 function loginSuccess(firebaseUser){
@@ -76,4 +77,37 @@ function saveMemo(num){
     content:content
   })
   alert("저장이 완료되었습니다.");
+}
+
+async function updateHome(){
+  const uid = sessionStorage.getItem("uid");
+  const ref = doc(db,"user/uid");
+  const docSnap = await getDoc(ref);
+  const memoNum = parseInt(docSnap.data().memoNum);
+  
+  for(var i=1;i<=memoNum;i++){
+    const docRef = doc(db,"user/uid/memo/"+i);
+    const docSnap = await getDoc(docRef);
+    const title = docSnap.data().title;
+    const content = docSnap.data().content;
+
+    const li = document.createElement("li");
+    li.setAttribute("class","memo");
+    li.setAttribute("id","memo"+i);
+
+    const childContent = document.createElement("div");
+    childContent.setAttribute("class","content");
+    childContent.append(content);
+
+    const childTitle = document.createElement("div");
+    childTitle.setAttribute("class","memoTitle");
+    childTitle.append(title);
+
+    li.appendChild(childTitle);
+    li.appendChild(childContent);
+    
+
+    document.getElementById("memoList").appendChild(li);
+
+  }
 }
