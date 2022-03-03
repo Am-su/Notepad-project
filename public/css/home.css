@@ -84,10 +84,11 @@ li.memo:hover{
   border:1px solid black;
 }
 
-.memo .Memotitle, .memo .content{
+li.memo .memoTitle, li.memo .content{
   width:280px;
   text-overflow:ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-align: left;
 }
 
