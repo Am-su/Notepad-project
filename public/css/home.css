@@ -32,6 +32,15 @@ ul{
   background-color: #CBA577;
   border-radius: 10px 10px 0 0;
 }
+#panel{
+  width:500px;
+  height:500px;
+  background-color: #FFECCC;
+  margin-top:20px;
+  overflow:scroll;
+  overflow-x:hidden;
+  
+}
 #title{
   position:absolute;
   display:flex;
@@ -63,6 +72,7 @@ ul{
   margin-top:20px;
   display:flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #memoList li{
