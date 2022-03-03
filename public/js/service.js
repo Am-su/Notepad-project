@@ -13,6 +13,9 @@ $(document).ready(function(){
   })
   $("#save").on("click",function(){
     save();
+    setTimeout(() => {
+      window.location.href = "../html/home.html"        
+    }, 3000);
   })
   updateHome();
 })
@@ -55,7 +58,7 @@ function login(){
 
 async function save(){
   const uid = sessionStorage.getItem("uid");
-  const ref = doc(db,"user/uid");
+  const ref = doc(db,"user/"+uid);
   var memoNum;
 
   await updateDoc(ref,{
@@ -69,10 +72,12 @@ async function save(){
 }
 
 function saveMemo(num){
+  const uid = sessionStorage.getItem("uid");
   const title = $("#title").val();
   const content = $("#content").val();
+  //const src = "user/"+uid+"/memo"+num;
 
-  setDoc(doc(db,"user/uid/memo/"+num),{
+  setDoc(doc(db,"user/"+uid+"/memo/"+num),{
     title:title,
     content:content
   })
@@ -81,33 +86,38 @@ function saveMemo(num){
 
 async function updateHome(){
   const uid = sessionStorage.getItem("uid");
-  const ref = doc(db,"user/uid");
+  const ref = doc(db,"user/"+uid);
   const docSnap = await getDoc(ref);
   const memoNum = parseInt(docSnap.data().memoNum);
   
-  for(var i=1;i<=memoNum;i++){
-    const docRef = doc(db,"user/uid/memo/"+i);
-    const docSnap = await getDoc(docRef);
-    const title = docSnap.data().title;
-    const content = docSnap.data().content;
-
-    const li = document.createElement("li");
-    li.setAttribute("class","memo");
-    li.setAttribute("id","memo"+i);
-
-    const childContent = document.createElement("div");
-    childContent.setAttribute("class","content");
-    childContent.append(content);
-
-    const childTitle = document.createElement("div");
-    childTitle.setAttribute("class","memoTitle");
-    childTitle.append(title);
-
-    li.appendChild(childTitle);
-    li.appendChild(childContent);
-    
-
-    document.getElementById("memoList").appendChild(li);
-
+  if(memoNum > 0){
+    for(var i=1;i<=memoNum;i++){
+      //const src = "user/"+uid+"/memo"+i;
+      const docRef = doc(db,"user/"+uid+"/memo/"+i);
+      const docSnap = await getDoc(docRef);
+      const title = docSnap.data().title;
+      const content = docSnap.data().content;
+  
+      const li = document.createElement("li");
+      li.setAttribute("class","memo");
+      li.setAttribute("id","memo"+i);
+  
+      const childContent = document.createElement("div");
+      childContent.setAttribute("class","content");
+      childContent.append(content);
+  
+      const childTitle = document.createElement("div");
+      childTitle.setAttribute("class","memoTitle");
+      childTitle.append(title);
+  
+      li.appendChild(childTitle);
+      li.appendChild(childContent);
+      
+  
+      document.getElementById("memoList").appendChild(li);
+  
+    }
   }
 }
+
+export{ errorMessage };
