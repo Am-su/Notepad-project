@@ -1,5 +1,5 @@
 import { app, firebaseConfig } from "../js/firebase.js";
-import { getFirestore, collection, setDoc, doc, getDoc, addDoc, getDocs, updateDoc, increment,} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import { getFirestore, collection, setDoc, doc, getDoc, addDoc, getDocs, updateDoc, increment, runTransaction } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const Auth = firebase.auth();
 const db = getFirestore();
@@ -54,8 +54,15 @@ function login(){
 
 async function save(){
   const uid = sessionStorage.getItem("uid");
-  const ref = doc(db,"user/"+uid);
+  const ref = doc(db,"user/uid");
+  var memoNum;
+
   await updateDoc(ref,{
     memoNum:increment(1)
   })
+
+  const docSnap = await getDoc(ref);
+  memoNum = parseInt(docSnap.data().memoNum);
+  console.log(memoNum);
+  
 }
