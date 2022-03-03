@@ -1,6 +1,6 @@
 import { app, firebaseConfig } from "../js/firebase.js";
 import { getFirestore, collection, setDoc, doc, getDoc, addDoc, getDocs, updateDoc,
-         increment, runTransaction, query, where}
+         increment, runTransaction, query, where, deleteDoc}
           from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 const Auth = firebase.auth();
@@ -21,11 +21,11 @@ $(document).ready(function(){
     }, 3000);
   })
    $("#memoList").on("click","#delete",function(e){
-    
     let title = $(this).prev().text();
     remove(title);
-
-
+    setTimeout(() => {
+      window.location.href = "../html/home.html"        
+    }, 3000);
    })
 })
 
@@ -88,7 +88,8 @@ function saveMemo(num){
 
   setDoc(doc(db,"user/"+uid+"/memo/"+num),{
     title:title,
-    content:content
+    content:content,
+    num:num
   })
   alert("저장이 완료되었습니다.");
 }
@@ -136,19 +137,17 @@ async function updateHome(){
   }
 }
 
-function remove(title){
-  search(title);
-}
-
-async function search(title){
+async function remove(title){
   const uid = sessionStorage.getItem("uid");
   const memoRef = collection(db,"user/"+uid+"/memo");
   const q = query(memoRef, where("title","==",title));
-
+  var num;
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", parseInt(doc.data().title));
+    num = doc.data().num;
   });
+  await deleteDoc(doc(db,"user/"+uid+"/memo/"+num));
 }
+
 export{ errorMessage };
