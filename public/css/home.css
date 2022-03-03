@@ -104,10 +104,21 @@ li.memo:hover{
 }
 
 li.memo .memoTitle, li.memo .content{
-  width:280px;
+  width:420px;
+  display:flex;
+  justify-content: space-;
+  align-items: center;
   text-overflow:ellipsis;
   white-space: nowrap;
   overflow: hidden;
   text-align: left;
 }
 
+.memo > .memoTitle > p{
+  width: 350px;
+  font-weight: bold;
+}
+
+.memo > .memoTitle > i:hover{
+  color:red;
+}

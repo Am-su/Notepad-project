@@ -105,10 +105,16 @@ async function updateHome(){
       const childContent = document.createElement("div");
       childContent.setAttribute("class","content");
       childContent.append(content);
-  
+      
+      const icon = document.createElement("i");
+      icon.setAttribute("class","fa fa-trash");
+      const head = document.createElement("p");
+      head.append(title);
+      
       const childTitle = document.createElement("div");
       childTitle.setAttribute("class","memoTitle");
-      childTitle.append(title);
+      childTitle.append(head);
+      childTitle.append(icon);
   
       li.appendChild(childTitle);
       li.appendChild(childContent);
