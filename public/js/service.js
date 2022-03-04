@@ -28,6 +28,10 @@ $(document).ready(function(){
       window.location.href = "../html/home.html"        
     }, 3000);
   })
+  $("#logout").on("click",function(){
+    logout();
+
+  })
 })
 
 function loginSuccess(firebaseUser){
@@ -170,6 +174,17 @@ async function decNum(){
 
 function pushIndex(num){
 
+}
+
+function logout(){
+  Auth.signOut().then(function(){
+    alert("로그아웃 되었습니다.");
+    window.location.href = "../html/login.html";
+  }).catch(function(){
+    if(error){
+      alert("로그아웃 실패");
+    }
+  })
 }
 
 export{ errorMessage };
