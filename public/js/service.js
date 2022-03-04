@@ -148,6 +148,18 @@ async function remove(title){
     num = doc.data().num;
   });
   await deleteDoc(doc(db,"user/"+uid+"/memo/"+num));
+  decNum(num);
+}
+
+async function decNum(num){
+  const uid = sessionStorage.getItem("uid");
+  const ref = doc(db,"user/"+uid);
+  var reNum = num-1;
+
+  await updateDoc(ref,{
+    memoNum:reNum
+  })
+  alert("삭제되었습니다.")
 }
 
 export{ errorMessage };
