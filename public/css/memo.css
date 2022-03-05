@@ -1,0 +1,59 @@
+#container{
+  position:relative;
+  top:100px;
+  width:500px;
+  height: 600px;
+  margin:0 auto;
+  display:flex;
+  flex-direction: column;
+  background-color:#FFECCC;
+  border-radius: 10px;
+}
+#header{
+  position: relative;
+  width:500px;
+  height:60px;
+  display:flex;
+  align-items: center;
+  background-color: #CBA577;
+  border-radius: 10px 10px 0 0;
+}
+#title{
+  position: absolute;
+  left:10px;
+  width:380px;
+}
+#header #close{
+  position: absolute;
+  font-weight: bold;
+  cursor: pointer;
+  width:80px;
+  height:40px;
+  right:20px;
+  background-color:#C25450;
+  border:0;
+  outline: 0;
+  border-radius: 10px;
+}
+#header #close:hover{
+  background-color: #007562;
+}
+#panel{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 540px;
+}
+#registerDate{
+  position: absolute;
+  top:5px;
+  right:10px;
+  height:30px;
+}
+#content{
+  position: absolute;
+  width:470px;
+  height:490px;
+  top:40px;
+  left:15px;
+}
