@@ -8,7 +8,6 @@ const db = getFirestore();
 var lastIndex;
 
 $(document).ready(function(){
-  updateHome();
   $("#login").on("click",function(){
     login();
   })
@@ -27,10 +26,17 @@ $(document).ready(function(){
     setTimeout(() => {
       window.location.href = "../html/home.html"        
     }, 3000);
+    ProgressEvent();
   })
   $("#logout").on("click",function(){
     logout();
-
+  })
+  $("#close").on("click",function(){
+    window.location.href = "../html/home.html"
+  })
+  $("#memoList").on("click",".memo",function(){
+    let title = $(this).children().children("p").html();
+    openMemo(title);
   })
 })
 
@@ -197,4 +203,23 @@ function logout(){
   })
 }
 
+async function openMemo(title){
+  const uid = sessionStorage.getItem("uid");
+  const memoRef = collection(db,"user/"+uid+"/memo");
+  const q = query(memoRef, where("title","==",title));
+  var num;
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    num = doc.data().num;
+  });
+
+  window.location.href = "../html/memo.html"
+  var memo = doc(db,"user/"+uid+"/memo/"+num);
+  var memoSnapshot = await getDoc(memo);
+  var title = memoSnapshot.data().title;
+  var content = memoSnapshot.data().content;
+  console.log(title+", "+content);
+
+  document.getElementById("memoTitle").append(title);
+}
 export{ errorMessage };
