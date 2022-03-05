@@ -13,7 +13,7 @@ $(document).ready(function(){
     login();
   })
   $("#btnAdd").on("click",function(){
-    window.location.href = "../html/memo.html"
+    window.location.href = "../html/newMemo.html"
   })
   $("#save").on("click",function(){
     save();
