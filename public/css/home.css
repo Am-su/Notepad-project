@@ -122,17 +122,26 @@ li.memo:hover{
 li.memo .memoTitle, li.memo .content{
   width:420px;
   display:flex;
-  justify-content: space-;
-  align-items: center;
   text-overflow:ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-align: left;
+  
 }
 
 .memo > .memoTitle > p{
   width: 350px;
   font-weight: bold;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.memo > .content > p{
+  width:300px;
+  font-weight: 400;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .memo > .memoTitle > i:hover{

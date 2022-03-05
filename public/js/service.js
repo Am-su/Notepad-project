@@ -90,12 +90,14 @@ function saveMemo(num){
   const uid = sessionStorage.getItem("uid");
   const title = $("#title").val();
   const content = $("#content").val();
-  //const src = "user/"+uid+"/memo"+num;
+  const registerDate = new Date().toISOString('ko').slice(0,10);
+  
 
   setDoc(doc(db,"user/"+uid+"/memo/"+num),{
     title:title,
     content:content,
-    num:num
+    num:num,
+    registerDate:registerDate
   })
   alert("저장이 완료되었습니다.");
 }
@@ -112,6 +114,7 @@ async function updateHome(){
       const title = doc.data().title;
       const content = doc.data().content;
       lastIndex = doc.data().num;
+      const registerDate = doc.data().registerDate;
 
       const li = document.createElement("li");
       li.setAttribute("class","memo");
@@ -119,12 +122,19 @@ async function updateHome(){
   
       const childContent = document.createElement("div");
       childContent.setAttribute("class","content");
-      childContent.append(content);
-      
+      var head = document.createElement("p");
+      head.append(content);
+      const date = document.createElement("span");
+      date.setAttribute("id","registerDate");
+      date.append(registerDate);
+
+      childContent.append(head);
+      childContent.append(date);
+
       const icon = document.createElement("i");
       icon.setAttribute("class","fa fa-trash");
       icon.setAttribute("id","delete");
-      const head = document.createElement("p");
+      head = document.createElement("p");
       head.append(title);
       
       const childTitle = document.createElement("div");
