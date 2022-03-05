@@ -37,6 +37,9 @@ $(document).ready(function(){
   $("#memoList").on("click",".memo",function(){
     let title = $(this).children().children("p").html();
     openMemo(title);
+    setTimeout(() => {
+      window.location.href = "../html/memo.html";
+    }, 1000);
   })
 })
 
@@ -188,10 +191,6 @@ async function decNum(){
   alert("삭제되었습니다.")
 }
 
-function pushIndex(num){
-
-}
-
 function logout(){
   Auth.signOut().then(function(){
     alert("로그아웃 되었습니다.");
@@ -213,13 +212,14 @@ async function openMemo(title){
     num = doc.data().num;
   });
 
-  window.location.href = "../html/memo.html"
   var memo = doc(db,"user/"+uid+"/memo/"+num);
   var memoSnapshot = await getDoc(memo);
   var title = memoSnapshot.data().title;
   var content = memoSnapshot.data().content;
-  console.log(title+", "+content);
+  var registerDate = memoSnapshot.data().registerDate;
 
-  document.getElementById("memoTitle").append(title);
+  sessionStorage.setItem("date",registerDate);
+  sessionStorage.setItem("title",title);
+  sessionStorage.setItem("content",content);
 }
 export{ errorMessage };
