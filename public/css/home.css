@@ -129,7 +129,7 @@ li.memo .memoTitle, li.memo .content{
 }
 
 .memo > .memoTitle > p{
-  width: 350px;
+  width: 370px;
   font-weight: bold;
   text-overflow:ellipsis;
   white-space: nowrap;
