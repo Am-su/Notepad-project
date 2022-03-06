@@ -5,7 +5,6 @@ import { errorMessage } from "../js/service.js";
 
 
 const Auth = firebase.auth();
-var userInfo;
 
 $(document).ready(function(){
   $("#register").on('click',function(){
