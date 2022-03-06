@@ -63,3 +63,8 @@ ul{
   text-decoration: none;
   color:gray;
 }
+
+#sub a:hover{
+  text-decoration: underline;
+  color: #7A7D81;
+}
