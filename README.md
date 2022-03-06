@@ -4,7 +4,6 @@
 # NotePad - NotePad using firebase
 <br>
 
-<<<<<<< HEAD
 ### Project name : NotePad
 ### Project execution period : 2022-02-20 ~ 2022-03-06
 ### Project page : [메모장](https://memo-app-ba46d.web.app)
@@ -62,6 +61,3 @@
 > css
 >
 > javascript
-=======
-홈페이지 : [메모장](https://memo-web-2a69b.web.app)
->>>>>>> 8f605fdf19d191d23fa9ed884ca7f78bab92d59b
