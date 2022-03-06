@@ -22,8 +22,6 @@ $(document).ready(function(){
         window.location.href = "../html/login.html"        
       }, 3000);
     }, function(error) {
-        //에러가 발생했을 때 
-        console.log(error.code);
         errorMessage(error.code);
       });
     }
